@@ -2,7 +2,7 @@ module MUX5(w_MemToReg, w_ALUOut, w_LS, w_ShiftReg, w_MUX10, w_Shiftleft16, w_Si
 
 input [2:0] w_MemToReg;
 input [31:0] w_LS, w_ALUOut, w_Shiftleft16, w_ShiftReg, w_MUX10, w_SignExtend132;
-output [31:0] w_MUX5;
+output reg[31:0] w_MUX5;
 
 always @(*)
 
