@@ -8,16 +8,16 @@ always @(*)
 
 begin
     case (w_PCsrc)
-        3'b00:begin
+        2'b00:begin
             w_MUX11[31:0] <= w_ALUResult[31:0];
         end
-        3'b01:begin
+        2'b01:begin
             w_MUX11[31:0] <= w_ALUOUT[31:0];
         end
-        3'b10:begin
+        2'b10:begin
             w_MUX11[31:0] <= w_ShiftLeft2Concat[31:0];
         end
-        3'b11:begin
+        2'b11:begin
             w_MUX11[31:0] <= w_EPC[31:0];
         end
     endcase
