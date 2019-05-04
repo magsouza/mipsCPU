@@ -1,4 +1,4 @@
-module MUX1 (WriteData, w_ALUResult, w_SS, w_MUX3);
+module MUX3 (WriteData, w_ALUResult, w_SS, w_MUX3);
 
 	input [2:0] WriteData;
 	input [31:0] w_ALUResult, w_SS;
