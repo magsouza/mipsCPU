@@ -1,4 +1,4 @@
-module MUX11(w_EPC, w_ShiftLeft2Concat, w_ALUResult, w_ALUOUT, w_PCsrc, w_MUX11);
+module MUX11(w_PCSrc, w_ALUResult, w_ALUOUT, w_ShiftLeft2Concat, w_EPC, w_MUX11);
 
 input [1:0] w_PCsrc;
 input [31:0] w_ALUOUT, w_EPC, w_ALUResult, w_ShiftLeft2Concat;
