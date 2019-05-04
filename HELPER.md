@@ -15,3 +15,4 @@ A relação entrada-saída deve ser igual a da máquina de estado.
  ### Possíveis erros:
  * Nome dos signextend e shiftleft
  * Literais que não são literais de vdd como 227
+ * Os Always@
