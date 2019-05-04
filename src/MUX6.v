@@ -2,7 +2,7 @@ module MUX6(w_ALUSrcA, w_PC, w_A, w_SignExtend2632, w_MemDataReg, w_MUX6);
 
 input [1:0] w_ALUSrcA;
 input [31:0] w_PC, w_MemDataReg, w_A, w_SignExtend2632;
-output reg [31:0] w_MUX6;
+output reg[31:0] w_MUX6;
 
 always@(*)
 
