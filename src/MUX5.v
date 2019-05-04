@@ -26,6 +26,9 @@ begin
         3'b101: begin
             w_MUX5[31:0] <= w_SignExtend132[31:0];
         end
+        3'b110: begin
+            w_MUX5[31:0] <=  32'd227;
+        end
     endcase
 end
 
