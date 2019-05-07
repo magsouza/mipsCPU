@@ -1,4 +1,4 @@
-# mipsCPU
+﻿# mipsCPU
 
 ## Projeto Inicial
 
@@ -12,3 +12,5 @@
 ![Doc explicando estados](https://docs.google.com/document/d/1As1xmgspeBYz4xO-ayRz9NjOY5Lf44nrDU8_MaaKLAM/edit?usp=sharing)
 
 ## TODO
+
+testeee2
