@@ -7,7 +7,7 @@ output reg [31:0] w_ShiftLeft2Concat;
 
 always @(*)
 begin
-    w_ShiftLeft2Concat <= {w_PC[31:28], w_rdrtrs[25:0], 2'd0};
+    w_ShiftLeft2Concat[31:0] <= {w_PC[31:28], w_rdrtrs[25:0], 2'd0};
 end
 
 endmodule
