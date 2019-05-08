@@ -1,19 +1,18 @@
-module MUX2 (ExcpCtrl, w_MUX2);
+module MUX1 (muxFlag, w_muxIn0, w_muxIn1, w_muxOut);
 
-input [1:0] ExcpCtrl;
-output reg[31:0] w_MUX2;
+	input muxFlag;
+	input [31:0] w_muxIn0, w_muxIn1;
+	output reg[31:0] w_muxOut;
 
 always @(*)
+
 begin
-	case(ExcpCtrl)
-		2'b00: begin
-			w_MUX2[31:0] <= 32'd253;
+	case (muxFlag)
+		1'b0: begin
+			w_muxOut[31:0] <= w_muxIn0[31:0];
 		end
-		2'b01: begin
-			w_MUX2[31:0] <= 32'd254;
-		end
-		2'b10: begin
-			w_MUX2[31:0] <= 32'd255;
+		1'b1: begin
+			w_muxOut[31:0] <= w_muxIn1[31:0];
 		end
 	endcase
 end
