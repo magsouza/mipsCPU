@@ -19,7 +19,7 @@ begin
 		end
 		2'b11: begin
 			w_muxOut[4:0] <= w_muxIn3[4:0];
-        end
+        	end
 	endcase
 end
 
