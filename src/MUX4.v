@@ -1,26 +1,26 @@
-module MUX1 (muxFlag, w_muxIn0, w_muxIn1, w_muxIn2, w_muxIn3, w_muxOut);
-
-	input [1:0] muxFlag;
-	input [31:0] w_muxIn0, w_muxIn1, w_muxIn2, w_muxIn3;
-	output reg[31:0] w_muxOut;
+module MUX4 (w_RegDist, w_rt, w_rd, w_MUX4);
+	
+	input [1:0] w_RegDist;
+	input [4:0] w_rt, w_rd;
+	output reg [4:0] w_MUX4;
 
 always @(*)
-
-begin
-	case (muxFlag)
+begin 
+	case (w_RegDist)
 		2'b00: begin
-			w_muxOut[31:0] <= w_muxIn0[31:0];
-		end
+			w_MUX4[4:0] <= w_rt [4:0];
+		end 
 		2'b01: begin
-			w_muxOut[31:0] <= w_muxIn1[31:0];
+			w_MUX4[4:0] <= w_rd[4:0];
 		end
-		2'b10: begin
-			w_muxOut[31:0] <= w_muxIn2[31:0];
+		2'b10: begin 
+			w_MUX4[4:0] <= 5'd31
 		end
 		2'b11: begin
-			w_muxOut[31:0] <= w_muxIn3[31:0];
-        end
+			w_MUX4[4:0] <= 5'd29
+		end
 	endcase
 end
 
 endmodule
+	 
