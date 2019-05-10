@@ -51,18 +51,18 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 				w_AluSrcB <= 001; //
 				w_EPCControl <= 00;
 				w_IorD <= 0; //
-				w_IRWrite <= 0;
+				w_IRWrite <= 1;
 				w_MemRead <= 1; //
 				w_MemToReg <= 110;
 				w_PCSrc <= 00; // 
 				w_PCWrite <= 1; //  
 				w_RegDist <= 10; 
-				w_RegWrite <= 1;
+				w_RegWrite <= 0;
 				w_WriteData <= 0;
 				Estado <= 7'b0000010;
             end
 
-        7'b0000010 : // IR
+        7'b0000010 : // Wait (ou seje, muda o IR desde antes)
             begin
 				Reset <= 0;
 				w_ALUControl <= 001; 
@@ -72,12 +72,12 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 				w_EPCControl <= 00;
 				w_IorD <= 0;
 				w_IRWrite <= 1; //
-				w_MemRead <= 1; 
+				w_MemRead <= 0; 
 				w_MemToReg <= 110;
 				w_PCSrc <= 00; 
-				w_PCWrite <= 1;   
+				w_PCWrite <= 0;   
 				w_RegDist <= 10; 
-				w_RegWrite <= 1;
+				w_RegWrite <= 0;
 				w_WriteData <= 0;
 				Estado <= 7'b0000011;
             end
@@ -90,13 +90,13 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 				w_AluSrcB <= 011; // 
 				w_EPCControl <= 00;
 				w_IorD <= 0;
-				w_IRWrite <= 1; 
-				w_MemRead <= 1; 
+				w_IRWrite <= 0; 
+				w_MemRead <= 0; 
 				w_MemToReg <= 110;
 				w_PCSrc <= 00; 
-				w_PCWrite <= 1;   
+				w_PCWrite <= 0;   
 				w_RegDist <= 10; 
-				w_RegWrite <= 1;
+				w_RegWrite <= 0;
 				w_WriteData <= 0;
 				
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  vai escolher a instrucao e tal  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -132,13 +132,13 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 				w_AluSrcB <= 000; // 
 				w_EPCControl <= 00;
 				w_IorD <= 0;
-				w_IRWrite <= 1; 
-				w_MemRead <= 1; 
+				w_IRWrite <= 0; 
+				w_MemRead <= 0; 
 				w_MemToReg <= 110;
 				w_PCSrc <= 00; 
-				w_PCWrite <= 1;   
+				w_PCWrite <= 0;   
 				w_RegDist <= 10; 
-				w_RegWrite <= 1;
+				w_RegWrite <= 0;
 				w_WriteData <= 0;
 				Estado <= posAddSubAnd;
 			end
@@ -152,13 +152,13 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 				w_AluSrcB <= 000; // 
 				w_EPCControl <= 00;
 				w_IorD <= 0;
-				w_IRWrite <= 1; 
-				w_MemRead <= 1; 
+				w_IRWrite <= 0; 
+				w_MemRead <= 0; 
 				w_MemToReg <= 110;
 				w_PCSrc <= 00; 
-				w_PCWrite <= 1;   
+				w_PCWrite <= 0;   
 				w_RegDist <= 10; 
-				w_RegWrite <= 1;
+				w_RegWrite <= 0;
 				w_WriteData <= 0;
 				Estado <= posAddSubAnd;
 			end
@@ -172,13 +172,13 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 				w_AluSrcB <= 000; // 
 				w_EPCControl <= 00;
 				w_IorD <= 0;
-				w_IRWrite <= 1; 
-				w_MemRead <= 1; 
+				w_IRWrite <= 0; 
+				w_MemRead <= 0; 
 				w_MemToReg <= 110;
 				w_PCSrc <= 00; 
-				w_PCWrite <= 1;   
+				w_PCWrite <= 0;   
 				w_RegDist <= 10; 
-				w_RegWrite <= 1;
+				w_RegWrite <= 0;
 				w_WriteData <= 0;
 				Estado <= posAddSubAnd;
 			end
@@ -192,11 +192,11 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 				w_AluSrcB <= 000;
 				w_EPCControl <= 00;
 				w_IorD <= 0;
-				w_IRWrite <= 1; 
-				w_MemRead <= 1; 
+				w_IRWrite <= 0; 
+				w_MemRead <= 0; 
 				w_MemToReg <= 000; //
 				w_PCSrc <= 00; 
-				w_PCWrite <= 1;   
+				w_PCWrite <= 0;   
 				w_RegDist <= 01; //
 				w_RegWrite <= 1; //
 				w_WriteData <= 0;
@@ -212,13 +212,13 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 				w_AluSrcB <= 010; // 
 				w_EPCControl <= 00;
 				w_IorD <= 0;
-				w_IRWrite <= 1; 
-				w_MemRead <= 1; 
+				w_IRWrite <= 0; 
+				w_MemRead <= 0; 
 				w_MemToReg <= 110;
 				w_PCSrc <= 00; 
-				w_PCWrite <= 1;   
+				w_PCWrite <= 0;   
 				w_RegDist <= 10; 
-				w_RegWrite <= 1;
+				w_RegWrite <= 0;
 				w_WriteData <= 0;
 				Estado <= posADDiEADDiu;
 			end
@@ -232,11 +232,11 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 				w_AluSrcB <= 010;  
 				w_EPCControl <= 00;
 				w_IorD <= 0;
-				w_IRWrite <= 1; 
-				w_MemRead <= 1; 
+				w_IRWrite <= 0; 
+				w_MemRead <= 0; 
 				w_MemToReg <= 000; //
 				w_PCSrc <= 00; 
-				w_PCWrite <= 1;   
+				w_PCWrite <= 0;   
 				w_RegDist <= 00; // 
 				w_RegWrite <= 1; //
 				w_WriteData <= 0;
