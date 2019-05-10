@@ -8,5 +8,6 @@ always @(posedge Clock)
             7'b0000001 : Estado <= 7'b0000010;
             7'b0000010 : Estado <= 7'b0000011;
             7'b0000011 : Estado <= 7'b0000010;
+		endcase
     end
 endmodule

@@ -10,7 +10,7 @@ begin
         1'b0 : begin
             w_SignExtend2632[31:0] <= {5'b1, w_SignExtend2632[25:0]};
         end
-        1'b' : begin
+        1'b1 : begin
             w_SignExtend2632[31:0] <= {5'b0, w_SignExtend2632[25:0]};
         end
     endcase

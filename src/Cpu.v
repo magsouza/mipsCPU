@@ -1,10 +1,11 @@
-module CPU (
-	input wire clock, input wire reset
+
+module Cpu (
+	input wire clock, input wire reset, output wire[31:0] w_PC , output wire[6:0] Estado , output wire [31:0]w_ULAout_out
 );
 
-wire [31:0]w_PC;
-wire [31:0]w_ALUResult;
-wire [31:0]w_ULAout_out;
+//wire [31:0]w_PC;
+wire [31:0]w_Result;
+//wire [31:0]w_ULAout_out;
 wire [31:0]w_SS;
 wire [31:0]w_LS;
 wire [31:0]w_ShiftReg_out;
@@ -35,6 +36,7 @@ wire [5:0]w_opcode;
 wire [4:0]w_rt;
 wire [4:0]w_rs;
 assign rd = w_instr15_0[15-11];
+assign funct = w_instr15_0[5-0]; // IIIIIIGU ISSO AQ É FUNCT
 
 wire [2:0]MemtoReg;
 wire [2:0]w_ALUSrcB;
@@ -64,7 +66,7 @@ wire w_LT;
 
 //comeÃ§o dos mux
 
-MUX4 mux1(//ok
+MUXIR mux1(//ok
 	.muxFlag(IorD),
 	.w_muxIn0(w_PC),
 	.w_muxIn1(w_ALUResult),
@@ -110,7 +112,7 @@ MUX7 mux5(//ok
 	.w_muxOut(w_MUX5)
 );
 
-MUX4 mux6(//ok
+MUXIR mux6(//ok
 	.muxFlag(w_ALUSrcA),
 	.w_muxIn0(w_PC),
 	.w_muxIn1(w_regA_out),
@@ -129,7 +131,7 @@ MUX5 mux7(//ok
 	.w_muxOut(w_MUX7)
 );
 
-MUX4 mux11(//ok
+MUXIR mux11(//ok
 	.muxFlag(w_PCSrc),
 	.w_muxIn0(w_ALUResult),
 	.w_muxIn1(w_ULAout_Out),
@@ -175,7 +177,7 @@ Memoria mem_(//ok
 
 Instr_Reg IR_(//ok
 	.Clk(clock),
-	.Reset(reset)
+	.Reset(reset),
 	.Load_ir(IRwrite),
 	.Entrada(w_MemData_out),
 	.Instr31_26(w_opcode),
@@ -217,6 +219,30 @@ Registrador ALUout_(
 	.Saida(w_ULAout_Out)
 );
 
+Control Controline(  // ~~~~~~ grande contribuição de lhine a essa incrivel cpu ~~~~~~~
+	.OPCode(w_opcode),
+	.Funct(funct),
+	.Clock(clock),
+	.w_PCWrite(PCWrite),
+	.w_IorD(IorD),
+	.w_MemRead(MemRead),
+	.w_WriteData(WriteData),
+	.w_MemToReg(MemtoReg),
+	.w_RegDist(RegDist),
+	.w_AluSrcA(w_ALUSrcA),
+	.w_AluSrcB(w_ALUSrcB),
+	.w_RegWrite(RegWrite),
+	.w_ALUControl(w_ULAcontrol), // pensamento do dia : pq diabos ta como ula na declaracao? 
+	.w_ALUOutCtrl(ALUOutCtrl),
+	.w_EPCControl(EPCControl), // tbm nao entendo o pq de alguns terem w e outros nao. sigamos.
+	.w_PCSrc(w_PCSrc),
+	.w_IRWrite(IRwrite),
+	.Estado(Estado)
+	//.Reset(reset) erro em NET RESET : como so aq o reset é output, da merda
+);
+
+ // ~~~~~~~~~~ ate aq mermo ~~~~~~~~~~
+ 
 Registrador EPC_(
 	.Clk(clock),
 	.Reset(reset),
@@ -224,3 +250,5 @@ Registrador EPC_(
 	.Entrada(w_ALUResult),
 	.Saida(w_EPC_out)
 );
+
+endmodule

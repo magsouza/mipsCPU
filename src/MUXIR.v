@@ -1,4 +1,4 @@
-module MUX1 (muxFlag, w_muxIn0, w_muxIn1, w_muxIn2, w_muxIn3, w_muxOut);
+module MUXIR (muxFlag, w_muxIn0, w_muxIn1, w_muxIn2, w_muxIn3, w_muxOut);
 
 	input [1:0] muxFlag;
 	input [4:0] w_muxIn0, w_muxIn1, w_muxIn2, w_muxIn3;
