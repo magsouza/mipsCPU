@@ -6,7 +6,7 @@
 * A Div e Mult. Algumas operações foram feitas assumindo que funciona, tipo o (~a + 1'b1) para ser complemento a 2. Isso compila(foi testado), mas não sabemos se dá o output esperado.
 * A exception da Div de dividir por zero. Se ligar de colocar no estado, se rolar é pra ir pra a exception.
 * O lance das exceptions em geral nos estados.
-
+* O nome de alguns fios. Os de output do controle e que saem de registradores não estão muito padronizados.
 
 ### Importante
 * Testar várias ordens de instrução e diferentes instruções.
