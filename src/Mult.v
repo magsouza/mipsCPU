@@ -48,6 +48,9 @@ always @(posedge Clock) begin
     
     // Arithmetically shift the value obtained in the 2nd step by a single place to the right. Let P now equal this new value.
     P = P >> 1;
+    if (P[63] == 1'b1) begin // This will make the shift right the way it should
+        P[64] = 1'b1;
+    end
     
     // Repeat steps 2 and 3 until they have been done y (no nosso caso sempre 32) times.
     y = y - 1;
