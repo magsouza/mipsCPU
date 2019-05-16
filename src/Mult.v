@@ -58,10 +58,13 @@ always @(posedge Clock) begin
       w_MULTHI = P[64:33];
       w_MULTLO = P[32:1];
       w_MultStop = 1'b1;
+      y = -1;
+    end
+    if ( y == -1) begin
       A = 65'b0;
       S = 65'b0;
-      P = 65'b0;
+      P = 65'b0; 
     end
-    
+  
 end
 endmodule
