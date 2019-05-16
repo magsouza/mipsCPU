@@ -1,11 +1,11 @@
 module StoreSize(SS, w_MemDataReg, w_regB_out, w_SS);
-
-	input [1:0] SS;
-	input [31:0] w_regB_out, w_MemDataReg;
-	output [31:0] w_SS;
-
-	always @(*)
-
+ 
+    input [1:0] SS;
+    input [31:0] w_regB_out, w_MemDataReg;
+    output reg[31:0] w_SS;
+ 
+    always @(*)
+ 
   begin
       case (SS)
           2'b00 : begin
@@ -19,5 +19,5 @@ module StoreSize(SS, w_MemDataReg, w_regB_out, w_SS);
           end
       endcase
   end
-
+ 
 endmodule

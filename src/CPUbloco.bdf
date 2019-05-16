@@ -500,7 +500,7 @@ applicable agreement for further details.
 	(drawing
 		(rectangle (rect 16 16 200 304)(line_width 1))
 	)
-	(annotation_block (parameter)(rect 1000 -536 1216 -424))
+	(annotation_block (parameter)(rect 1064 -536 1280 -424))
 )
 (symbol
 	(rect 1968 344 2184 504)

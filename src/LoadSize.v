@@ -1,14 +1,14 @@
 module LoadSize (LS, w_MemDataReg, w_LS);
-
+ 
   input [1:0] LS;
   input [31:0] w_MemDataReg;
-  output [31:0] w_LS;
-
+  output reg[31:0] w_LS;
+ 
   always @(*)
-
+ 
   begin
       case (LS)
-          // word: n√£o faz nada
+          // word: n„o faz nada
           2'b00 : begin
             w_LS[31:0] = w_MemDataReg[31:0];
           end
@@ -22,5 +22,5 @@ module LoadSize (LS, w_MemDataReg, w_LS);
           end
       endcase
   end
-
+ 
 endmodule
