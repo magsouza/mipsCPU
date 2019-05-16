@@ -1,11 +1,11 @@
 
-module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_WriteData,w_MemToReg, w_RegDist, w_AluSrcA, w_AluSrcB, w_RegWrite, w_ALUControl, w_ALUOutCtrl, w_EPCControl, w_PCSrc, w_IRWrite, w_ShiftSrc, w_ShiftAmt, w_ShiftCrtl, w_MultStart, w_DivMult, w_RegHighW, w_RegLowW, Reset);
+module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_WriteData,w_MemToReg, w_RegDist, w_AluSrcA, w_AluSrcB, w_RegWrite, w_ALUControl, w_ALUOutCtrl, w_EPCControl, w_PCSrc, w_IRWrite, w_ShiftSrc, w_ShiftAmt, w_ShiftCrtl, w_MultStart, w_MultS, w_DivMult, w_RegHighW, w_RegLowW, w_MDRs, w_EQ, w_GT, w_LT, w_SSControl, Reset);
 
     output reg[6:0] Estado;
     input 			Clock;
     input[5:0] 		OPCode, Funct;
-    output reg      w_RegWrite, w_MemRead, w_PCWrite, w_WriteData, w_ALUOutCtrl, w_EPCControl, w_IRWrite, w_ShiftSrc, w_ShiftAmt, w_RegHighW, w_RegLowW, w_DivMult, w_MultStart, Reset;
-    output reg[1:0] w_IorD, w_RegDist, w_AluSrcA, w_PCSrc;
+    output reg      w_RegWrite, w_MemRead, w_PCWrite, w_WriteData, w_ALUOutCtrl, w_EPCControl, w_IRWrite, w_ShiftSrc, w_ShiftAmt, w_RegHighW, w_RegLowW, w_DivMult, w_MultStart, w_MultS, w_MDRs, w_GT, w_EQ, w_LT, Reset;
+    output reg[1:0] w_IorD, w_RegDist, w_AluSrcA, w_PCSrc, w_SSControl;
     output reg[2:0] w_AluSrcB, w_ALUControl, w_MemToReg, w_ShiftCrtl;
 	
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  setando estado inicial   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -55,8 +55,11 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 				w_AluSrcA <= 00;
 				w_AluSrcB <= 000;
 				w_EPCControl <= 00;
+				w_EQ <= 0;
+				w_GT <= 0;
 				w_IorD <= 0;
 				w_IRWrite <= 0;
+				w_LT <= 0; 
 				w_MemRead <= 0;
 				w_MemToReg <= 110;
 				w_PCSrc <= 00; 
@@ -66,6 +69,7 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 				w_ShiftAmt <= 0;
 				w_ShiftCrtl <= 000;
 				w_ShiftSrc <= 0;
+				w_SSControl <= 00;
 				w_WriteData <= 0;
 				Estado <= FETCH;
 			end
@@ -78,8 +82,11 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 				w_AluSrcA <= 00; //
 				w_AluSrcB <= 001; //
 				w_EPCControl <= 00;
+				w_EQ <= 0;
+				w_GT <= 0;
 				w_IorD <= 0; //
 				w_IRWrite <= 1;
+				w_LT <= 0; 
 				w_MemRead <= 1; //
 				w_MemToReg <= 110;
 				w_PCSrc <= 00; // 
@@ -89,6 +96,7 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 				w_ShiftAmt <= 0;
 				w_ShiftCrtl <= 000;
 				w_ShiftSrc <= 0;
+				w_SSControl <= 00;
 				w_WriteData <= 0;
 				Estado <= 7'b0000010;
             end
@@ -101,8 +109,11 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 				w_AluSrcA <= 00; 
 				w_AluSrcB <= 001; 
 				w_EPCControl <= 00;
+				w_EQ <= 0;
+				w_GT <= 0;
 				w_IorD <= 0;
 				w_IRWrite <= 1; //
+				w_LT <= 0; 
 				w_MemRead <= 0; 
 				w_MemToReg <= 110;
 				w_PCSrc <= 00; 
@@ -112,6 +123,7 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 				w_ShiftAmt <= 0;
 				w_ShiftCrtl <= 000;
 				w_ShiftSrc <= 0;
+				w_SSControl <= 00;
 				w_WriteData <= 0;
 				Estado <= DECODE;
             end
@@ -124,8 +136,11 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 				w_AluSrcA <= 01; // 
 				w_AluSrcB <= 011; // 
 				w_EPCControl <= 00;
+				w_EQ <= 0;
+				w_GT <= 0;
 				w_IorD <= 0;
-				w_IRWrite <= 0; 
+				w_IRWrite <= 0;
+				w_LT <= 0;  
 				w_MemRead <= 0; 
 				w_MemToReg <= 110;
 				w_PCSrc <= 00; 
@@ -135,6 +150,7 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 				w_ShiftAmt <= 0;
 				w_ShiftCrtl <= 000;
 				w_ShiftSrc <= 0;
+				w_SSControl <= 00;
 				w_WriteData <= 0;
 				
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  vai escolher a instrucao e tal  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -190,8 +206,11 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_AluSrcA <= 01;  
 					w_AluSrcB <= 011; 
 					w_EPCControl <= 00;
+					w_EQ <= 0;
+					w_GT <= 0;
 					w_IorD <= 0;
 					w_IRWrite <= 0; 
+					w_LT <= 0; 
 					w_MemRead <= 0; 
 					w_MemToReg <= 110;
 					w_PCSrc <= 00; 
@@ -201,6 +220,7 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_ShiftAmt <= 0; //
 					w_ShiftCrtl <= 010; //
 					w_ShiftSrc <= 0; //
+					w_SSControl <= 00;
 					w_WriteData <= 0;
 					Estado <= SaveInReg;
 				end
@@ -213,8 +233,11 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_AluSrcA <= 01;  
 					w_AluSrcB <= 011; 
 					w_EPCControl <= 00;
+					w_EQ <= 0;
+					w_GT <= 0;
 					w_IorD <= 0;
 					w_IRWrite <= 0; 
+					w_LT <= 0; 
 					w_MemRead <= 0; 
 					w_MemToReg <= 110;
 					w_PCSrc <= 00; 
@@ -224,6 +247,7 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_ShiftAmt <= 0; //
 					w_ShiftCrtl <= 100; //
 					w_ShiftSrc <= 0; //
+					w_SSControl <= 00;
 					w_WriteData <= 0;
 					Estado <= SaveInReg;
 				end
@@ -236,8 +260,11 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_AluSrcA <= 01;  
 					w_AluSrcB <= 011; 
 					w_EPCControl <= 00;
+					w_EQ <= 0;
+					w_GT <= 0;
 					w_IorD <= 0;
 					w_IRWrite <= 0; 
+					w_LT <= 0; 
 					w_MemRead <= 0; 
 					w_MemToReg <= 110;
 					w_PCSrc <= 00; 
@@ -247,6 +274,7 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_ShiftAmt <= 1; //
 					w_ShiftCrtl <= 010; //
 					w_ShiftSrc <= 1; //
+					w_SSControl <= 00;
 					w_WriteData <= 0;
 					Estado <= SaveInReg;
 				end	
@@ -259,8 +287,11 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_AluSrcA <= 01;  
 					w_AluSrcB <= 011; 
 					w_EPCControl <= 00;
+					w_EQ <= 0;
+					w_GT <= 0;
 					w_IorD <= 0;
 					w_IRWrite <= 0; 
+					w_LT <= 0; 
 					w_MemRead <= 0; 
 					w_MemToReg <= 110;
 					w_PCSrc <= 00; 
@@ -270,6 +301,7 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_ShiftAmt <= 1; //
 					w_ShiftCrtl <= 100; //
 					w_ShiftSrc <= 1; //
+					w_SSControl <= 00;
 					w_WriteData <= 0;
 					Estado <= SaveInReg;
 				end	
@@ -282,8 +314,11 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_AluSrcA <= 01;  
 					w_AluSrcB <= 011; 
 					w_EPCControl <= 00;
+					w_EQ <= 0;
+					w_GT <= 0;
 					w_IorD <= 0;
 					w_IRWrite <= 0; 
+					w_LT <= 0; 
 					w_MemRead <= 0; 
 					w_MemToReg <= 110;
 					w_PCSrc <= 00; 
@@ -293,8 +328,36 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_ShiftAmt <= 1; //
 					w_ShiftCrtl <= 011; //
 					w_ShiftSrc <= 1; //
+					w_SSControl <= 00;
 					w_WriteData <= 0;
 					Estado <= SaveInReg;
+				end
+				
+			SaveInReg: 
+				begin
+					Reset <= 0;
+					w_ALUControl <= 001;  
+					w_ALUOutCtrl <= 1;  
+					w_AluSrcA <= 01;  
+					w_AluSrcB <= 011; 
+					w_EPCControl <= 00;
+					w_EQ <= 0;
+					w_GT <= 0;
+					w_IorD <= 0;
+					w_IRWrite <= 0; 
+					w_LT <= 0; 
+					w_MemRead <= 0; 
+					w_MemToReg <= 100; //
+					w_PCSrc <= 00; 
+					w_PCWrite <= 0;   
+					w_RegDist <= 01; // 
+					w_RegWrite <= 1; //
+					w_ShiftAmt <= 1; 
+					w_ShiftCrtl <= 011; 
+					w_ShiftSrc <= 1;
+					w_SSControl <= 00;
+					w_WriteData <= 0;
+					Estado <= FETCH;
 				end		
           
 			Add: 
@@ -305,8 +368,11 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_AluSrcA <= 01; // 
 					w_AluSrcB <= 000; // 
 					w_EPCControl <= 00;
+					w_EQ <= 0;
+					w_GT <= 0;
 					w_IorD <= 0;
-					w_IRWrite <= 0; 
+					w_IRWrite <= 0;
+					w_LT <= 0;  
 					w_MemRead <= 0; 
 					w_MemToReg <= 110;
 					w_PCSrc <= 00; 
@@ -316,6 +382,7 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_ShiftAmt <= 0;
 					w_ShiftCrtl <= 0;
 					w_ShiftSrc <= 0;
+					w_SSControl <= 00;
 					w_WriteData <= 0;
 					Estado <= posAddSubAnd;
 				end
@@ -328,8 +395,11 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_AluSrcA <= 01; // 
 					w_AluSrcB <= 000; // 
 					w_EPCControl <= 00;
+					w_EQ <= 0;
+					w_GT <= 0;
 					w_IorD <= 0;
 					w_IRWrite <= 0; 
+					w_LT <= 0; 
 					w_MemRead <= 0; 
 					w_MemToReg <= 110;
 					w_PCSrc <= 00; 
@@ -339,6 +409,7 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_ShiftAmt <= 0;
 					w_ShiftCrtl <= 0;
 					w_ShiftSrc <= 0;
+					w_SSControl <= 00;
 					w_WriteData <= 0;
 					Estado <= posAddSubAnd;
 				end
@@ -351,8 +422,11 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_AluSrcA <= 01; // 
 					w_AluSrcB <= 000; // 
 					w_EPCControl <= 00;
+					w_EQ <= 0;
+					w_GT <= 0;
 					w_IorD <= 0;
 					w_IRWrite <= 0; 
+					w_LT <= 0; 
 					w_MemRead <= 0; 
 					w_MemToReg <= 110;
 					w_PCSrc <= 00; 
@@ -362,6 +436,7 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_ShiftAmt <= 0;
 					w_ShiftCrtl <= 0;
 					w_ShiftSrc <= 0;
+					w_SSControl <= 00;
 					w_WriteData <= 0;
 					Estado <= posAddSubAnd;
 				end
@@ -374,8 +449,11 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_AluSrcA <= 01; 
 					w_AluSrcB <= 000;
 					w_EPCControl <= 00;
+					w_EQ <= 0;
+					w_GT <= 0;
 					w_IorD <= 0;
 					w_IRWrite <= 0; 
+					w_LT <= 0; 
 					w_MemRead <= 0; 
 					w_MemToReg <= 000; //
 					w_PCSrc <= 00; 
@@ -385,6 +463,7 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_ShiftAmt <= 0;
 					w_ShiftCrtl <= 0;
 					w_ShiftSrc <= 0;
+					w_SSControl <= 00;
 					w_WriteData <= 0;
 					Estado <= 7'b0000001;
 				end
@@ -397,11 +476,14 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_AluSrcA <= 01;  
 					w_AluSrcB <= 011; 
 					w_EPCControl <= 00;
+					w_EQ <= 0;
+					w_GT <= 0;
 					w_IorD <= 0;
-					w_IRWrite <= 0; 
+					w_IRWrite <= 0;
+					w_LT <= 0;  
 					w_MemRead <= 0; 
 					w_MemToReg <= 011; //
-					//w_MultS <= 0 //
+					w_MultS <= 0; //
 					w_PCSrc <= 00; 
 					w_PCWrite <= 0;   
 					w_RegDist <= 01; // 
@@ -409,6 +491,7 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_ShiftAmt <= 0;
 					w_ShiftCrtl <= 0;
 					w_ShiftSrc <= 0;
+					w_SSControl <= 00;
 					w_WriteData <= 0;
 					Estado <= FETCH;
 				end
@@ -424,8 +507,11 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_AluSrcA <= 01; // 
 					w_AluSrcB <= 011; // 
 					w_EPCControl <= 00;
+					w_EQ <= 0;
+					w_GT <= 0;
 					w_IorD <= 0;
-					w_IRWrite <= 0; 
+					w_IRWrite <= 0;
+					w_LT <= 0;  
 					w_MemRead <= 0; 
 					w_MemToReg <= 110;
 					w_PCSrc <= 00; 
@@ -435,6 +521,7 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_ShiftAmt <= 0;
 					w_ShiftCrtl <= 0;
 					w_ShiftSrc <= 0;
+					w_SSControl <= 00;
 					w_WriteData <= 0;
 					Estado <= FETCH;
 				end
@@ -447,8 +534,11 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_AluSrcA <= 01; // 
 					w_AluSrcB <= 011; 
 					w_EPCControl <= 00;
+					w_EQ <= 0;
+					w_GT <= 0;
 					w_IorD <= 0;
 					w_IRWrite <= 0; 
+					w_LT <= 0; 
 					w_MemRead <= 0; 
 					w_MemToReg <= 110;
 					w_PCSrc <= 00; //
@@ -458,6 +548,7 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_ShiftAmt <= 0;
 					w_ShiftCrtl <= 0;
 					w_ShiftSrc <= 0;
+					w_SSControl <= 00;
 					w_WriteData <= 0;
 					Estado <= FETCH;
 				end
@@ -470,11 +561,14 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_AluSrcA <= 01; 
 					w_AluSrcB <= 011; 
 					w_EPCControl <= 00;
+					w_EQ <= 0;
+					w_GT <= 0;
 					w_IorD <= 0;
 					w_IRWrite <= 0; 
+					w_LT <= 0; 
 					w_MemRead <= 0; 
 					w_MemToReg <= 011;
-					//w_MultS <= 1 //
+					w_MultS <= 1; //
 					w_PCSrc <= 00; 
 					w_PCWrite <= 0;   
 					w_RegDist <= 01; // 
@@ -482,6 +576,7 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_ShiftAmt <= 0;
 					w_ShiftCrtl <= 0;
 					w_ShiftSrc <= 0;
+					w_SSControl <= 00;
 					w_WriteData <= 0;
 					Estado <= FETCH;
 				end
@@ -494,11 +589,14 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_AluSrcA <= 00; // 
 					w_AluSrcB <= 001; // 
 					w_EPCControl <= 00;
+					w_EQ <= 0;
+					w_GT <= 0;
 					w_IorD <= 0;
 					w_IRWrite <= 0; 
+					w_LT <= 0; 
 					w_MemRead <= 0; 
 					w_MemToReg <= 110;
-					//w_MultS <= 0 
+					w_MultS <= 0;
 					w_PCSrc <= 00; //
 					w_PCWrite <= 1; //   
 					w_RegDist <= 10; 
@@ -506,6 +604,7 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_ShiftAmt <= 0;
 					w_ShiftCrtl <= 0;
 					w_ShiftSrc <= 0;
+					w_SSControl <= 00;
 					w_WriteData <= 0;
 					Estado <= FETCH;
 				end
@@ -518,11 +617,14 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_AluSrcA <= 01; //
 					w_AluSrcB <= 000; // 
 					w_EPCControl <= 00;
+					w_EQ <= 0;
+					w_GT <= 0;
 					w_IorD <= 0;
 					w_IRWrite <= 0; 
+					w_LT <= 0; 
 					w_MemRead <= 0; 
 					w_MemToReg <= 101; //
-					//w_MultS <= 0 
+					w_MultS <= 0;
 					w_PCSrc <= 00; 
 					w_PCWrite <= 0;   
 					w_RegDist <= 01; // 
@@ -530,6 +632,7 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 					w_ShiftAmt <= 0;
 					w_ShiftCrtl <= 0;
 					w_ShiftSrc <= 0;
+					w_SSControl <= 00;
 					w_WriteData <= 0;
 					Estado <= FETCH;
 				end	
@@ -543,36 +646,50 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_MemRead, w_Wri
 				w_AluSrcA <= 01; //  
 				w_AluSrcB <= 010; // 
 				w_EPCControl <= 00;
+				w_EQ <= 0;
+				w_GT <= 0;
 				w_IorD <= 0;
-				w_IRWrite <= 0; 
+				w_IRWrite <= 0;
+				w_LT <= 0;  
 				w_MemRead <= 0; 
 				w_MemToReg <= 110;
 				w_PCSrc <= 00; 
 				w_PCWrite <= 0;   
 				w_RegDist <= 10; 
 				w_RegWrite <= 0;
+				w_ShiftAmt <= 0;
+				w_ShiftCrtl <= 000;
+				w_ShiftSrc <= 0;
+				w_SSControl <= 00;
 				w_WriteData <= 0;
 				Estado <= posAddiAddiu;
 			end
 			
 			posAddiAddiu:
-			begin
+			begin			
 				Reset <= 0;
 				w_ALUControl <= 001; 
 				w_ALUOutCtrl <= 1; 
-				w_AluSrcA <= 01; 
+				w_AluSrcA <= 01;  
 				w_AluSrcB <= 010;  
 				w_EPCControl <= 00;
+				w_EQ <= 0;
+				w_GT <= 0;
 				w_IorD <= 0;
-				w_IRWrite <= 0; 
+				w_IRWrite <= 0;
+				w_LT <= 0;  
 				w_MemRead <= 0; 
 				w_MemToReg <= 000; //
 				w_PCSrc <= 00; 
 				w_PCWrite <= 0;   
 				w_RegDist <= 00; // 
 				w_RegWrite <= 1; //
+				w_ShiftAmt <= 0;
+				w_ShiftCrtl <= 000;
+				w_ShiftSrc <= 0;
+				w_SSControl <= 00;
 				w_WriteData <= 0;
-				Estado <= 7'b0000001; // volta pro FETCH
+				Estado <= FETCH;
 			end
 			
     endcase

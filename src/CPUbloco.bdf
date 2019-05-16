@@ -24,7 +24,7 @@ applicable agreement for further details.
 	(input)
 	(rect -320 536 -152 552)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
-	(text "clock" (rect 5 0 30 12)(font "Arial" ))
+	(text "clock" (rect 9 0 34 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 92 12)(pt 117 12)(line_width 1))
@@ -809,7 +809,6 @@ applicable agreement for further details.
 	(drawing
 		(rectangle (rect 16 16 176 112)(line_width 1))
 	)
-	(fill (color 214 247 254))
 )
 (symbol
 	(rect 1408 264 1632 424)
@@ -881,7 +880,6 @@ applicable agreement for further details.
 	(drawing
 		(rectangle (rect 16 16 208 144)(line_width 1))
 	)
-	(fill (color 214 247 254))
 )
 (symbol
 	(rect 800 296 1000 424)
@@ -946,7 +944,6 @@ applicable agreement for further details.
 	(drawing
 		(rectangle (rect 16 16 184 112)(line_width 1))
 	)
-	(fill (color 214 247 254))
 )
 (symbol
 	(rect 1408 480 1640 576)
