@@ -67,7 +67,7 @@ always @(posedge Clock) begin
   end
   i = i - 1;
   
-  if(~i) begin // Cabo
+  if(i==0) begin // Cabo
     //Lidando com o sinal que eu tirei no começo
     case({w_A[31], w_B[31]})
         2'b00: begin // + div + Quo = + Rem = +
