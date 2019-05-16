@@ -23,13 +23,12 @@ always @(posedge Clock) begin
         P = 65'b0;
     end
     
-    if(w_MultStart) begin // Setup
+    if(y==32) begin // Setup
         A = {w_A, 33'b0};           //A: Fill the most significant (leftmost) bits with the value of m. Fill the remaining (y + 1) bits with zeros.
         S = {(~w_A + 1'b1), 33'b0}; //S: Fill the most significant bits with the value of (−m) in two's complement notation. Fill the remaining (y + 1) bits with zeros.
         P = {32'b0, w_B, 1'b0};     //P: Fill the most significant x bits with zeros. To the right of this, append the value of r. Fill the least significant (rightmost) bit with a zero.
         y = 32;
         w_MultStop = 1'b0;
-        w_MultStart = 1'b0;
     end
     
     // Now there are 4 cases, but actually two cases because two of them do nothing
