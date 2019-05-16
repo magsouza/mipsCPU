@@ -45,7 +45,7 @@ always @(posedge Clock) begin
       D = 31'b0;
   end
   
-  if(w_DivStart) begin // Setup
+  if(i==31) begin // Setup
       N = w_A[30:0];
       D = w_B[30:0];
       Q = 31'b0;
