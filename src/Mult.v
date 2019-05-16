@@ -29,6 +29,7 @@ always @(posedge Clock) begin
         P = {32'b0, w_B, 1'b0};     //P: Fill the most significant x bits with zeros. To the right of this, append the value of r. Fill the least significant (rightmost) bit with a zero.
         y = 32;
         w_MultStop = 1'b0;
+        w_MultStart = 1'b0;
     end
     
     // Now there are 4 cases, but actually two cases because two of them do nothing
