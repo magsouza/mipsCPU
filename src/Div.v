@@ -59,11 +59,11 @@ always @(posedge Clock) begin
   end
   
   R = R << 1;
-  R[0] = N[i];
+  R[0] = N[i-1];
   
   if( R >= D) begin
     R = R - D;
-    Q[i] = 1'b1;
+    Q[i-1] = 1'b1;
   end
   i = i - 1;
   
