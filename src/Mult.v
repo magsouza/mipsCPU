@@ -54,7 +54,7 @@ always @(posedge Clock) begin
     
     // Repeat steps 2 and 3 until they have been done y (no nosso caso sempre 32) times.
     y = y - 1;
-    if (~y) begin
+    if (y==0) begin
       w_MULTHI = P[64:33];
       w_MULTLO = P[32:1];
       w_MultStop = 1'b1;
