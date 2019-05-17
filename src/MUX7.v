@@ -26,7 +26,7 @@ begin
 			w_muxOut[31:0] = w_muxIn5[31:0];
 		end
 		3'b110: begin
-			w_muxOut[31:0] = w_muxIn6[31:0];
+			w_muxOut[31:0] <= 227; // n faco ideia se da certo
 		end
 	endcase
 end
