@@ -1,0 +1,404 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 232 496)
+	(text "Control" (rect 5 0 40 12)(font "Arial" ))
+	(text "inst" (rect 8 464 25 476)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "OPCode[5..0]" (rect 0 0 67 12)(font "Arial" ))
+		(text "OPCode[5..0]" (rect 21 27 88 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "Funct[5..0]" (rect 0 0 54 12)(font "Arial" ))
+		(text "Funct[5..0]" (rect 21 43 75 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "Clock" (rect 0 0 28 12)(font "Arial" ))
+		(text "Clock" (rect 21 59 49 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 1))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "EQ" (rect 0 0 15 12)(font "Arial" ))
+		(text "EQ" (rect 21 75 36 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 1))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "GT" (rect 0 0 14 12)(font "Arial" ))
+		(text "GT" (rect 21 91 35 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 1))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "LT" (rect 0 0 11 12)(font "Arial" ))
+		(text "LT" (rect 21 107 32 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 1))
+	)
+	(port
+		(pt 216 32)
+		(output)
+		(text "Estado[6..0]" (rect 0 0 60 12)(font "Arial" ))
+		(text "Estado[6..0]" (rect 135 27 195 39)(font "Arial" ))
+		(line (pt 216 32)(pt 200 32)(line_width 3))
+	)
+	(port
+		(pt 216 48)
+		(output)
+		(text "w_PCWrite" (rect 0 0 54 12)(font "Arial" ))
+		(text "w_PCWrite" (rect 141 43 195 55)(font "Arial" ))
+		(line (pt 216 48)(pt 200 48)(line_width 1))
+	)
+	(port
+		(pt 216 64)
+		(output)
+		(text "w_IorD[1..0]" (rect 0 0 60 12)(font "Arial" ))
+		(text "w_IorD[1..0]" (rect 135 59 195 71)(font "Arial" ))
+		(line (pt 216 64)(pt 200 64)(line_width 3))
+	)
+	(port
+		(pt 216 80)
+		(output)
+		(text "w_MemRead" (rect 0 0 62 12)(font "Arial" ))
+		(text "w_MemRead" (rect 133 75 195 87)(font "Arial" ))
+		(line (pt 216 80)(pt 200 80)(line_width 1))
+	)
+	(port
+		(pt 216 96)
+		(output)
+		(text "w_WriteData" (rect 0 0 62 12)(font "Arial" ))
+		(text "w_WriteData" (rect 133 91 195 103)(font "Arial" ))
+		(line (pt 216 96)(pt 200 96)(line_width 1))
+	)
+	(port
+		(pt 216 112)
+		(output)
+		(text "w_MemToReg[2..0]" (rect 0 0 94 12)(font "Arial" ))
+		(text "w_MemToReg[2..0]" (rect 101 107 195 119)(font "Arial" ))
+		(line (pt 216 112)(pt 200 112)(line_width 3))
+	)
+	(port
+		(pt 216 128)
+		(output)
+		(text "w_RegDist[1..0]" (rect 0 0 79 12)(font "Arial" ))
+		(text "w_RegDist[1..0]" (rect 116 123 195 135)(font "Arial" ))
+		(line (pt 216 128)(pt 200 128)(line_width 3))
+	)
+	(port
+		(pt 216 144)
+		(output)
+		(text "w_AluSrcA[1..0]" (rect 0 0 77 12)(font "Arial" ))
+		(text "w_AluSrcA[1..0]" (rect 118 139 195 151)(font "Arial" ))
+		(line (pt 216 144)(pt 200 144)(line_width 3))
+	)
+	(port
+		(pt 216 160)
+		(output)
+		(text "w_AluSrcB[2..0]" (rect 0 0 77 12)(font "Arial" ))
+		(text "w_AluSrcB[2..0]" (rect 118 155 195 167)(font "Arial" ))
+		(line (pt 216 160)(pt 200 160)(line_width 3))
+	)
+	(port
+		(pt 216 176)
+		(output)
+		(text "w_RegWrite" (rect 0 0 59 12)(font "Arial" ))
+		(text "w_RegWrite" (rect 136 171 195 183)(font "Arial" ))
+		(line (pt 216 176)(pt 200 176)(line_width 1))
+	)
+	(port
+		(pt 216 192)
+		(output)
+		(text "w_ALUControl[2..0]" (rect 0 0 95 12)(font "Arial" ))
+		(text "w_ALUControl[2..0]" (rect 100 187 195 199)(font "Arial" ))
+		(line (pt 216 192)(pt 200 192)(line_width 3))
+	)
+	(port
+		(pt 216 208)
+		(output)
+		(text "w_ALUOutCtrl" (rect 0 0 69 12)(font "Arial" ))
+		(text "w_ALUOutCtrl" (rect 126 203 195 215)(font "Arial" ))
+		(line (pt 216 208)(pt 200 208)(line_width 1))
+	)
+	(port
+		(pt 216 224)
+		(output)
+		(text "w_EPCControl" (rect 0 0 70 12)(font "Arial" ))
+		(text "w_EPCControl" (rect 125 219 195 231)(font "Arial" ))
+		(line (pt 216 224)(pt 200 224)(line_width 1))
+	)
+	(port
+		(pt 216 240)
+		(output)
+		(text "w_PCSrc[1..0]" (rect 0 0 70 12)(font "Arial" ))
+		(text "w_PCSrc[1..0]" (rect 125 235 195 247)(font "Arial" ))
+		(line (pt 216 240)(pt 200 240)(line_width 3))
+	)
+	(port
+		(pt 216 256)
+		(output)
+		(text "w_IRWrite" (rect 0 0 50 12)(font "Arial" ))
+		(text "w_IRWrite" (rect 145 251 195 263)(font "Arial" ))
+		(line (pt 216 256)(pt 200 256)(line_width 1))
+	)
+	(port
+		(pt 216 272)
+		(output)
+		(text "w_ShiftSrc" (rect 0 0 53 12)(font "Arial" ))
+		(text "w_ShiftSrc" (rect 142 267 195 279)(font "Arial" ))
+		(line (pt 216 272)(pt 200 272)(line_width 1))
+	)
+	(port
+		(pt 216 288)
+		(output)
+		(text "w_ShiftAmt" (rect 0 0 56 12)(font "Arial" ))
+		(text "w_ShiftAmt" (rect 139 283 195 295)(font "Arial" ))
+		(line (pt 216 288)(pt 200 288)(line_width 1))
+	)
+	(port
+		(pt 216 304)
+		(output)
+		(text "w_ShiftCrtl[2..0]" (rect 0 0 80 12)(font "Arial" ))
+		(text "w_ShiftCrtl[2..0]" (rect 115 299 195 311)(font "Arial" ))
+		(line (pt 216 304)(pt 200 304)(line_width 3))
+	)
+	(port
+		(pt 216 320)
+		(output)
+		(text "w_MultStart" (rect 0 0 56 12)(font "Arial" ))
+		(text "w_MultStart" (rect 139 315 195 327)(font "Arial" ))
+		(line (pt 216 320)(pt 200 320)(line_width 1))
+	)
+	(port
+		(pt 216 336)
+		(output)
+		(text "w_MultS" (rect 0 0 40 12)(font "Arial" ))
+		(text "w_MultS" (rect 155 331 195 343)(font "Arial" ))
+		(line (pt 216 336)(pt 200 336)(line_width 1))
+	)
+	(port
+		(pt 216 352)
+		(output)
+		(text "w_DivMult" (rect 0 0 50 12)(font "Arial" ))
+		(text "w_DivMult" (rect 145 347 195 359)(font "Arial" ))
+		(line (pt 216 352)(pt 200 352)(line_width 1))
+	)
+	(port
+		(pt 216 368)
+		(output)
+		(text "w_RegHighW" (rect 0 0 66 12)(font "Arial" ))
+		(text "w_RegHighW" (rect 129 363 195 375)(font "Arial" ))
+		(line (pt 216 368)(pt 200 368)(line_width 1))
+	)
+	(port
+		(pt 216 384)
+		(output)
+		(text "w_RegLowW" (rect 0 0 62 12)(font "Arial" ))
+		(text "w_RegLowW" (rect 133 379 195 391)(font "Arial" ))
+		(line (pt 216 384)(pt 200 384)(line_width 1))
+	)
+	(port
+		(pt 216 400)
+		(output)
+		(text "w_MDRs" (rect 0 0 43 12)(font "Arial" ))
+		(text "w_MDRs" (rect 152 395 195 407)(font "Arial" ))
+		(line (pt 216 400)(pt 200 400)(line_width 1))
+	)
+	(port
+		(pt 216 416)
+		(output)
+		(text "w_SSControl[1..0]" (rect 0 0 88 12)(font "Arial" ))
+		(text "w_SSControl[1..0]" (rect 107 411 195 423)(font "Arial" ))
+		(line (pt 216 416)(pt 200 416)(line_width 3))
+	)
+	(port
+		(pt 216 432)
+		(output)
+		(text "Reset" (rect 0 0 29 12)(font "Arial" ))
+		(text "Reset" (rect 166 427 195 439)(font "Arial" ))
+		(line (pt 216 432)(pt 200 432)(line_width 1))
+	)
+	(parameter
+		"RESETar"
+		"0000000"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"FETCH"
+		"0000001"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"DECODE"
+		"0000011"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"ShiftReg"
+		"0000100"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"sllv"
+		"0000101"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"srav"
+		"0000110"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"ShiftReg2"
+		"0000111"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Shamts"
+		"0001000"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"sll"
+		"0001001"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"sra"
+		"0001010"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"srl"
+		"0001011"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"SaveInReg"
+		"0001100"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Add"
+		"0001101"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Sub"
+		"0001110"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"And"
+		"0001111"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"posAddSubAnd"
+		"0010000"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"mfhi"
+		"0010001"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Div"
+		"0010010"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Div2"
+		"0010011"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Div3"
+		"0010100"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Mult"
+		"0010101"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Mult2"
+		"0010110"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Mult3"
+		"0010111"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"RTE"
+		"0011000"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Jr"
+		"0011001"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"mflo"
+		"0011010"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Break"
+		"0011011"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Slt"
+		"0011100"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"Addi"
+		"0101011"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"posAddiAddiu"
+		"0101101"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(drawing
+		(rectangle (rect 16 16 200 464)(line_width 1))
+	)
+	(annotation_block (parameter)(rect 232 -64 332 16))
+)

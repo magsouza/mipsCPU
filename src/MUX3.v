@@ -1,18 +1,21 @@
-module MUX3 (WriteData, w_ALUResult, w_SS, w_MUX3);
+module MUX3 (muxFlag, w_muxIn0, w_muxIn1, w_muxIn2, w_muxOut);
 
-	input WriteData;
-	input [31:0] w_ALUResult, w_SS;
-	output reg[31:0] w_MUX3;
+	input [1:0] muxFlag;
+	input [31:0] w_muxIn0, w_muxIn1, w_muxIn2;
+	output reg[31:0] w_muxOut;
 
 always @(*)
 
 begin
-	case (WriteData)
-		1'b0: begin
-			w_MUX3[31:0] <= w_ALUResult[31:0];
+	case (muxFlag)
+		2'b00: begin
+			w_muxOut[31:0] = w_muxIn0[31:0];
 		end
-		1'b1: begin
-			w_MUX3[31:0] <= w_SS[31:0];
+		2'b01: begin
+			w_muxOut[31:0] = w_muxIn1[31:0];
+		end
+		2'b10: begin
+			w_muxOut[31:0] = w_muxIn2[31:0];
 		end
 	endcase
 end

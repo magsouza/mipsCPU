@@ -1,0 +1,137 @@
+RPW
+
+	Undo Commands
+	     1.	||Compilation Report||Flow Summary
+
+
+WED
+
+	Undo Commands
+	     1.	Count Value
+			 *** 
+	     2.	Insert Node or Bus
+	     3.	Delete Node, Bus or Waveform Divider
+	     4.	Drop Node
+			 *** 
+	     5.	Insert Node or Bus
+	     6.	Drop Node
+			 *** 
+	     7.	Insert Node or Bus
+	     8.	Count Value
+			 *** 
+	     9.	Count Value
+			 *** 
+	    10.	Insert Node or Bus
+
+
+RPW
+
+	Undo Commands
+	     1.	||Simulation Report||Simulator||Simulation Waveforms
+
+
+GED
+
+	Undo Commands
+	     1.	Insert Bus
+	     2.	Delete Insert
+	     3.	Delete Insert
+	     4.	Move
+	     5.	Move
+	     6.	Resize
+	     7.	Move
+	     8.	Delete Insert
+	     9.	Resize
+	    10.	Insert Bus
+	    11.	Resize
+	    12.	Resize
+	    13.	Resize
+	    14.	Resize
+	    15.	Resize
+	    16.	Move
+	    17.	Move
+	    18.	Move
+	    19.	Move
+	    20.	Move
+	    21.	Move
+	    22.	Move
+	    23.	Move
+	    24.	Move
+	    25.	Move
+	    26.	Insert Symbol
+	    27.	Insert Bus
+	    28.	Move
+	    29.	Delete
+	    30.	Move
+	    31.	Move
+	    32.	Delete Insert
+	    33.	Properties
+	    34.	Insert Bus
+	    35.	Insert Bus
+	    36.	Insert Symbol
+	    37.	Delete
+	    38.	Properties
+	    39.	Properties
+	    40.	Properties
+	    41.	Insert Symbol
+	    42.	Properties
+	    43.	Resize
+	    44.	Resize
+	    45.	Resize
+	    46.	Resize
+	    47.	Resize
+	    48.	Resize
+	    49.	Resize
+	    50.	Resize
+	    51.	Resize
+	    52.	Insert Bus
+	    53.	Properties
+	    54.	Properties
+	    55.	Properties
+	    56.	Properties
+	    57.	Properties
+	    58.	Properties
+	    59.	Insert Node
+	    60.	Insert Node
+	    61.	Insert Node
+	    62.	Insert Node
+	    63.	Insert Symbol
+	    64.	Properties
+	    65.	Properties
+	    66.	Delete
+	    67.	Insert Bus
+	    68.	Delete Insert
+	    69.	Insert Bus
+	    70.	Insert Bus
+	    71.	Insert Bus
+	    72.	Delete
+	    73.	Resize
+	    74.	Resize
+	    75.	Resize
+	    76.	Delete
+	    77.	Delete
+	    78.	Delete Insert
+	    79.	Resize
+	    80.	Insert Symbol
+	    81.	Delete
+	    82.	Resize
+	    83.	Resize
+	    84.	Resize
+	    85.	Properties
+	    86.	Properties
+	    87.	Properties
+	    88.	Properties
+	    89.	Insert Bus
+	    90.	Delete Insert
+	    91.	Insert Bus
+	    92.	Delete
+	    93.	Insert Bus
+	    94.	Insert Bus
+	    95.	Delete
+	    96.	Insert Bus
+	    97.	Insert Bus
+	    98.	Delete Insert
+	    99.	Insert Bus
+	   100.	Insert Bus
+
+
