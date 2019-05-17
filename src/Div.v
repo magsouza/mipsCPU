@@ -7,7 +7,7 @@ output reg w_DivStop, w_DivZero;
 output reg[31:0] w_DIVHI, w_DIVLO;
 
 
-// Usando algoritmo do Wikipedia de divisão, faz A/B.
+// Usando algoritmo do Wikipedia de divisï¿½o, faz A/B.
 /*
 will divide N(A) by D(B), placing the quotient in Q and the remainder in R.
 if D = 0 then error(DivisionByZeroException) end
@@ -22,7 +22,7 @@ for i := n - 1 .. 0 do  -- Where n is number of bits in N
   end
 end
 */
-// Esse algoritmo é sem sinal, então eu vou tirar o sinal dos numeros e depois eu coloco usando a seguinte formula:
+// Esse algoritmo ï¿½ sem sinal, entï¿½o eu vou tirar o sinal dos numeros e depois eu coloco usando a seguinte formula:
 /*
 + div + Quo = + Rem = +
 - div + Quo = - Rem = -
@@ -68,7 +68,7 @@ always @(posedge Clock) begin
   i = i - 1;
   
   if(i==0) begin // Cabo
-    //Lidando com o sinal que eu tirei no começo
+    //Lidando com o sinal que eu tirei no comeÃ§o
     case({w_A[31], w_B[31]})
         2'b00: begin // + div + Quo = + Rem = +
             w_DIVHI = {1'b0, R};
