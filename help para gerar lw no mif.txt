@@ -1,0 +1,2 @@
+lw 3 140 3
+reg / posicao memoria / offset
