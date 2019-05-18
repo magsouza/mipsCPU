@@ -8,10 +8,10 @@ always @(*)
 begin
     case (w_rdrtrs[25])
         1'b0 : begin
-            w_SignExtend2632[31:0] <= {5'b00000, w_rdrtrs[25:0]};
+            w_SignExtend2632[31:0] <= {6'b0, w_rdrtrs[25:0]};
         end
         1'b1 : begin
-            w_SignExtend2632[31:0] <= {5'b11111, w_rdrtrs[25:0]};
+            w_SignExtend2632[31:0] <= {6'b1, w_rdrtrs[25:0]};
         end
     endcase
 end

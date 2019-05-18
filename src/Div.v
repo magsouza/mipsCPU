@@ -45,55 +45,57 @@ always @(posedge Clock) begin
       D = 31'b0;
   end
   
-  if(i==31) begin // Setup
-      N = w_A[30:0];
-      D = w_B[30:0];
-      Q = 31'b0;
-      R = 31'b0;
-      i = 31;
-      w_DivStop = 1'b0;
-  end
-  
-  if(D == 0) begin // Excecao
-    w_DivZero = 1'b1;
-  end
-  
-  R = R << 1;
-  R[0] = N[i-1];
-  
-  if( R >= D) begin
-    R = R - D;
-    Q[i-1] = 1'b1;
-  end
-  i = i - 1;
-  
-  if(i==0) begin // Cabo
-    //Lidando com o sinal que eu tirei no começo
-    case({w_A[31], w_B[31]})
-        2'b00: begin // + div + Quo = + Rem = +
-            w_DIVHI = {1'b0, R};
-            w_DIVLO = {1'b0, Q};
-        end
-        
-        2'b01: begin // + div - Quo = - Rem = +
-            w_DIVHI = {1'b0, R};
-            w_DIVLO = {1'b1, Q};
-        end
-        2'b10: begin // - div + Quo = - Rem = -
-            w_DIVHI = {1'b1, R};
-            w_DIVLO = {1'b1, Q};
-        end
-        2'b11: begin // - div - Quo = + Rem = -
-            w_DIVHI = {1'b1, R};
-            w_DIVLO = {1'b0, Q};
-        end
-    endcase
-    w_DivStop = 1'b1;
-    Q = 31'b0;
-    R = 31'b0;
-    N = 31'b0;
-    D = 31'b0;
-    
-  end
+  if(w_DivStart) begin
+	  
+	  if(i==31) begin // Setup
+		  N = w_A[30:0];
+		  D = w_B[30:0];
+		  Q = 31'b0;
+		  R = 31'b0;
+		  i = 31;
+		  w_DivStop = 1'b0;
+	  end
+	  
+	  if(D == 0) begin // Excecao
+		w_DivZero = 1'b1;
+	  end
+	  
+	  R = R << 1;
+	  R[0] = N[i-1];
+	  
+	  if( R >= D) begin
+		R = R - D;
+		Q[i-1] = 1'b1;
+	  end
+	  i = i - 1;
+	  
+	  if(i==0) begin // Cabo
+		//Lidando com o sinal que eu tirei no começo
+		case({w_A[31], w_B[31]})
+			2'b00: begin // + div + Quo = + Rem = +
+				w_DIVHI = {1'b0, R};
+				w_DIVLO = {1'b0, Q};
+			end
+			
+			2'b01: begin // + div - Quo = - Rem = +
+				w_DIVHI = {1'b0, R};
+				w_DIVLO = {1'b1, Q};
+			end
+			2'b10: begin // - div + Quo = - Rem = -
+				w_DIVHI = {1'b1, R};
+				w_DIVLO = {1'b1, Q};
+			end
+			2'b11: begin // - div - Quo = + Rem = -
+				w_DIVHI = {1'b1, R};
+				w_DIVLO = {1'b0, Q};
+			end
+		endcase
+		w_DivStop = 1'b1;
+		Q = 31'b0;
+		R = 31'b0;
+		N = 31'b0;
+		D = 31'b0;
+	  end  
+	end
 end
 endmodule

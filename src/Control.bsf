@@ -20,9 +20,9 @@ applicable agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 232 496)
+	(rect 16 16 232 528)
 	(text "Control" (rect 5 0 40 12)(font "Arial" ))
-	(text "inst" (rect 8 464 25 476)(font "Arial" ))
+	(text "inst" (rect 8 496 25 508)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -64,6 +64,27 @@ applicable agreement for further details.
 		(text "LT" (rect 0 0 11 12)(font "Arial" ))
 		(text "LT" (rect 21 107 32 119)(font "Arial" ))
 		(line (pt 0 112)(pt 16 112)(line_width 1))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "DivStop" (rect 0 0 40 12)(font "Arial" ))
+		(text "DivStop" (rect 21 123 61 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 1))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "MultStop" (rect 0 0 42 12)(font "Arial" ))
+		(text "MultStop" (rect 21 139 63 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 1))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "DivZero" (rect 0 0 40 12)(font "Arial" ))
+		(text "DivZero" (rect 21 155 61 167)(font "Arial" ))
+		(line (pt 0 160)(pt 16 160)(line_width 1))
 	)
 	(port
 		(pt 216 32)
@@ -194,36 +215,36 @@ applicable agreement for further details.
 	(port
 		(pt 216 320)
 		(output)
-		(text "w_MultStart" (rect 0 0 56 12)(font "Arial" ))
-		(text "w_MultStart" (rect 139 315 195 327)(font "Arial" ))
+		(text "MultStart" (rect 0 0 43 12)(font "Arial" ))
+		(text "MultStart" (rect 152 315 195 327)(font "Arial" ))
 		(line (pt 216 320)(pt 200 320)(line_width 1))
 	)
 	(port
 		(pt 216 336)
 		(output)
-		(text "w_MultS" (rect 0 0 40 12)(font "Arial" ))
-		(text "w_MultS" (rect 155 331 195 343)(font "Arial" ))
+		(text "MultS" (rect 0 0 27 12)(font "Arial" ))
+		(text "MultS" (rect 168 331 195 343)(font "Arial" ))
 		(line (pt 216 336)(pt 200 336)(line_width 1))
 	)
 	(port
 		(pt 216 352)
 		(output)
-		(text "w_DivMult" (rect 0 0 50 12)(font "Arial" ))
-		(text "w_DivMult" (rect 145 347 195 359)(font "Arial" ))
+		(text "DivMult" (rect 0 0 37 12)(font "Arial" ))
+		(text "DivMult" (rect 158 347 195 359)(font "Arial" ))
 		(line (pt 216 352)(pt 200 352)(line_width 1))
 	)
 	(port
 		(pt 216 368)
 		(output)
-		(text "w_RegHighW" (rect 0 0 66 12)(font "Arial" ))
-		(text "w_RegHighW" (rect 129 363 195 375)(font "Arial" ))
+		(text "RegHigh" (rect 0 0 42 12)(font "Arial" ))
+		(text "RegHigh" (rect 153 363 195 375)(font "Arial" ))
 		(line (pt 216 368)(pt 200 368)(line_width 1))
 	)
 	(port
 		(pt 216 384)
 		(output)
-		(text "w_RegLowW" (rect 0 0 62 12)(font "Arial" ))
-		(text "w_RegLowW" (rect 133 379 195 391)(font "Arial" ))
+		(text "RegLow" (rect 0 0 38 12)(font "Arial" ))
+		(text "RegLow" (rect 157 379 195 391)(font "Arial" ))
 		(line (pt 216 384)(pt 200 384)(line_width 1))
 	)
 	(port
@@ -253,6 +274,13 @@ applicable agreement for further details.
 		(text "Reset" (rect 0 0 29 12)(font "Arial" ))
 		(text "Reset" (rect 166 443 195 455)(font "Arial" ))
 		(line (pt 216 448)(pt 200 448)(line_width 1))
+	)
+	(port
+		(pt 216 464)
+		(output)
+		(text "DivStart" (rect 0 0 41 12)(font "Arial" ))
+		(text "DivStart" (rect 154 459 195 471)(font "Arial" ))
+		(line (pt 216 464)(pt 200 464)(line_width 1))
 	)
 	(parameter
 		"RESETar"
@@ -455,6 +483,11 @@ applicable agreement for further details.
 		""
 		(type "PARAMETER_UNSIGNED_BIN")	)
 	(parameter
+		"preLLL4"
+		"0110011"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
 		"LH"
 		"0101000"
 		""
@@ -509,8 +542,53 @@ applicable agreement for further details.
 		"0110010"
 		""
 		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"jump"
+		"0110101"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"preInc"
+		"0110110"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"preDec"
+		"0110111"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"preIncDec"
+		"0111000"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"inc"
+		"0111001"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"dec"
+		"0111010"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"posIncDec"
+		"0111011"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"jal"
+		"0111100"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"posJal"
+		"0111101"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
 	(drawing
-		(rectangle (rect 16 16 200 464)(line_width 1))
+		(rectangle (rect 16 16 200 496)(line_width 1))
 	)
 	(annotation_block (parameter)(rect 232 -64 332 16))
 )
