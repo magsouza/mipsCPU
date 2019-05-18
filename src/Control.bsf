@@ -89,8 +89,8 @@ applicable agreement for further details.
 	(port
 		(pt 216 80)
 		(output)
-		(text "w_MemRead" (rect 0 0 62 12)(font "Arial" ))
-		(text "w_MemRead" (rect 133 75 195 87)(font "Arial" ))
+		(text "w_ReadWrite" (rect 0 0 64 12)(font "Arial" ))
+		(text "w_ReadWrite" (rect 131 75 195 87)(font "Arial" ))
 		(line (pt 216 80)(pt 200 80)(line_width 1))
 	)
 	(port
@@ -243,9 +243,16 @@ applicable agreement for further details.
 	(port
 		(pt 216 432)
 		(output)
+		(text "w_LSControl[1..0]" (rect 0 0 87 12)(font "Arial" ))
+		(text "w_LSControl[1..0]" (rect 108 427 195 439)(font "Arial" ))
+		(line (pt 216 432)(pt 200 432)(line_width 3))
+	)
+	(port
+		(pt 216 448)
+		(output)
 		(text "Reset" (rect 0 0 29 12)(font "Arial" ))
-		(text "Reset" (rect 166 427 195 439)(font "Arial" ))
-		(line (pt 216 432)(pt 200 432)(line_width 1))
+		(text "Reset" (rect 166 443 195 455)(font "Arial" ))
+		(line (pt 216 448)(pt 200 448)(line_width 1))
 	)
 	(parameter
 		"RESETar"
@@ -388,13 +395,118 @@ applicable agreement for further details.
 		""
 		(type "PARAMETER_UNSIGNED_BIN")	)
 	(parameter
+		"Lui"
+		"0011101"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"preSSS1"
+		"0011110"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"preSSS2"
+		"0011111"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"preSSS3"
+		"0100000"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"preSSS4"
+		"0110100"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"SH"
+		"0100001"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"SW"
+		"0100010"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"SB"
+		"0100011"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"SLTI"
+		"0100100"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"preLLL1"
+		"0100101"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"preLLL2"
+		"0100110"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"preLLL3"
+		"0100111"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"LH"
+		"0101000"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"LW"
+		"0101001"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"LB"
+		"0101010"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
 		"Addi"
 		"0101011"
 		""
 		(type "PARAMETER_UNSIGNED_BIN")	)
 	(parameter
+		"Addiu"
+		"0101100"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
 		"posAddiAddiu"
 		"0101101"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"overflowAddiiu"
+		"0101110"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"beq"
+		"0101111"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"bne"
+		"0110000"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"ble"
+		"0110001"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"bgt"
+		"0110010"
 		""
 		(type "PARAMETER_UNSIGNED_BIN")	)
 	(drawing
