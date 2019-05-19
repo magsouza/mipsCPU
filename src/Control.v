@@ -12,7 +12,7 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_ReadWrite, w_W
 	
 	initial Estado <= 7'b0000000; 
 	
-	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  dando nomezinhos pros estados do inferno   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  dando nomes para os estados  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	
 	parameter RESETar = 7'b0000000, FETCH = 7'b0000001, DECODE = 7'b0000011; 
 	
@@ -57,7 +57,7 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_ReadWrite, w_W
 		
 		// EXCECOES
 
-	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  aqui começa a desgraça valendo   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  aqui comeÃ§a a desgraÃ§a valendo   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	
     always @(posedge Clock) begin
 
@@ -165,7 +165,7 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_ReadWrite, w_W
 				w_SSControl <= 00;
 				w_WriteData <= 0;
 				
-	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  vai escolher a instrucao e tal  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  vai escolher a instruÃ§Ã£o  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				case(OPCode) 
 			
 					// ~~~~~~~~~~~~~~~~~~~~~~  TIPO R  ~~~~~~~~~~~~~~~~~~~~~
@@ -232,7 +232,7 @@ module Control(OPCode, Funct, Clock, Estado, w_PCWrite, w_IorD, w_ReadWrite, w_W
 				endcase
            end
            
-     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  aqui temos as benditas instruções com seus estados  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  aqui temos as instruÃ§Ãµes com seus estados  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
            
           // ~~~~~~~~~~~~~~~~~~~~~~  TIPO R  ~~~~~~~~~~~~~~~~~~~~~
           
