@@ -200,6 +200,22 @@ applicable agreement for further details.
 		(line (pt 78 12)(pt 82 8)(line_width 1))
 	)
 )
+(pin
+	(output)
+	(rect 3304 352 3485 368)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "EPCResult[31..0]" (rect 90 0 176 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8)(line_width 1))
+		(line (pt 52 4)(pt 78 4)(line_width 1))
+		(line (pt 52 12)(pt 78 12)(line_width 1))
+		(line (pt 52 12)(pt 52 4)(line_width 1))
+		(line (pt 78 4)(pt 82 8)(line_width 1))
+		(line (pt 82 8)(pt 78 12)(line_width 1))
+		(line (pt 78 12)(pt 82 8)(line_width 1))
+	)
+)
 (symbol
 	(rect 1496 176 1528 192)
 	(text "VCC" (rect 7 0 27 10)(font "Arial" (color 0 0 0)(font_size 6)))
@@ -681,29 +697,6 @@ applicable agreement for further details.
 		(rectangle (rect 16 16 192 112)(line_width 1))
 	)
 	(fill (color 255 206 231))
-)
-(symbol
-	(rect 1408 712 1616 808)
-	(text "ShiftLeft16" (rect 5 0 60 12)(font "Arial" ))
-	(text "inst" (rect 8 80 25 92)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "w_rd[15..0]" (rect 0 0 54 12)(font "Arial" ))
-		(text "w_rd[15..0]" (rect 21 27 75 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
-	)
-	(port
-		(pt 208 32)
-		(output)
-		(text "w_ShiftLeft16[31..0]" (rect 0 0 100 12)(font "Arial" ))
-		(text "w_ShiftLeft16[31..0]" (rect 87 27 187 39)(font "Arial" ))
-		(line (pt 208 32)(pt 192 32)(line_width 3))
-	)
-	(drawing
-		(rectangle (rect 16 16 192 80)(line_width 1))
-	)
-	(fill (color 236 231 164))
 )
 (symbol
 	(rect 1104 752 1320 944)
@@ -1746,28 +1739,6 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1408 480 1640 576)
-	(text "w_SignExtend1632" (rect 5 0 97 12)(font "Arial" ))
-	(text "inst23" (rect 8 80 37 92)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "w_rd[15..0]" (rect 0 0 54 12)(font "Arial" ))
-		(text "w_rd[15..0]" (rect 21 27 75 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
-	)
-	(port
-		(pt 232 32)
-		(output)
-		(text "w_SignExtend1632[31..0]" (rect 0 0 123 12)(font "Arial" ))
-		(text "w_SignExtend1632[31..0]" (rect 88 27 211 39)(font "Arial" ))
-		(line (pt 232 32)(pt 216 32)(line_width 3))
-	)
-	(drawing
-		(rectangle (rect 16 16 216 80)(line_width 1))
-	)
-)
-(symbol
 	(rect 776 -776 992 -264)
 	(text "Control" (rect 5 0 40 12)(font "Arial" ))
 	(text "inst24" (rect 8 496 37 508)(font "Arial" ))
@@ -2339,6 +2310,115 @@ applicable agreement for further details.
 		(rectangle (rect 16 16 200 496)(line_width 1))
 	)
 	(annotation_block (parameter)(rect 992 -1648 1208 -776))
+)
+(symbol
+	(rect 1408 712 1616 808)
+	(text "ShiftLeft16" (rect 5 0 60 12)(font "Arial" ))
+	(text "inst" (rect 8 80 25 92)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "w_rd[15..0]" (rect 0 0 54 12)(font "Arial" ))
+		(text "w_rd[15..0]" (rect 21 27 75 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 208 32)
+		(output)
+		(text "w_ShiftLeft16[31..0]" (rect 0 0 100 12)(font "Arial" ))
+		(text "w_ShiftLeft16[31..0]" (rect 87 27 187 39)(font "Arial" ))
+		(line (pt 208 32)(pt 192 32)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 192 80)(line_width 1))
+	)
+)
+(symbol
+	(rect 1248 -96 1496 0)
+	(text "SignExtend2632" (rect 5 0 84 12)(font "Arial" ))
+	(text "inst5" (rect 8 80 31 92)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "w_rdrtrs[25..0]" (rect 0 0 70 12)(font "Arial" ))
+		(text "w_rdrtrs[25..0]" (rect 21 27 91 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 248 32)
+		(output)
+		(text "w_SignExtend2632[31..0]" (rect 0 0 123 12)(font "Arial" ))
+		(text "w_SignExtend2632[31..0]" (rect 104 27 227 39)(font "Arial" ))
+		(line (pt 248 32)(pt 232 32)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 232 80)(line_width 1))
+	)
+)
+(symbol
+	(rect 3064 272 3232 400)
+	(text "Registrador" (rect 5 0 61 12)(font "Arial" ))
+	(text "EPC" (rect 8 112 30 124)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "Clk" (rect 0 0 16 12)(font "Arial" ))
+		(text "Clk" (rect 21 27 37 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "Reset" (rect 0 0 29 12)(font "Arial" ))
+		(text "Reset" (rect 21 43 50 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "Load" (rect 0 0 23 12)(font "Arial" ))
+		(text "Load" (rect 21 59 44 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 1))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "Entrada[31..0]" (rect 0 0 69 12)(font "Arial" ))
+		(text "Entrada[31..0]" (rect 21 75 90 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 168 32)
+		(output)
+		(text "Saida[31..0]" (rect -16 0 43 12)(font "Arial" ))
+		(text "Saida[31..0]" (rect 88 27 147 39)(font "Arial" ))
+		(line (pt 168 32)(pt 152 32)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 168 112)(line_width 1))
+	)
+)
+(symbol
+	(rect 1408 480 1640 576)
+	(text "w_SignExtend1632" (rect 5 0 97 12)(font "Arial" ))
+	(text "inst8" (rect 8 80 31 92)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "w_rd[15..0]" (rect 0 0 54 12)(font "Arial" ))
+		(text "w_rd[15..0]" (rect 21 27 75 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 232 32)
+		(output)
+		(text "w_SignExtend1632[31..0]" (rect 0 0 123 12)(font "Arial" ))
+		(text "w_SignExtend1632[31..0]" (rect 88 27 211 39)(font "Arial" ))
+		(line (pt 232 32)(pt 216 32)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 216 80)(line_width 1))
+	)
 )
 (connector
 	(pt 1408 376)
@@ -2962,10 +3042,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 2584 -568)
-	(pt 2584 344)
-)
-(connector
 	(pt 2944 312)
 	(pt 2936 312)
 	(bus)
@@ -3265,11 +3341,6 @@ applicable agreement for further details.
 	(color 0 255 128)
 )
 (connector
-	(pt 2600 312)
-	(pt 2752 312)
-	(color 0 255 128)
-)
-(connector
 	(pt 1032 440)
 	(pt 1032 544)
 	(color 0 255 128)
@@ -3327,11 +3398,6 @@ applicable agreement for further details.
 (connector
 	(pt 776 128)
 	(pt 776 344)
-	(color 0 179 89)
-)
-(connector
-	(pt 2616 48)
-	(pt 2616 328)
 	(color 0 179 89)
 )
 (connector
@@ -3882,11 +3948,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 712 480)
-	(pt 800 480)
-	(bus)
-)
-(connector
 	(pt 712 416)
 	(pt 712 480)
 	(bus)
@@ -4065,11 +4126,6 @@ applicable agreement for further details.
 (connector
 	(pt 480 256)
 	(pt 480 144)
-	(bus)
-)
-(connector
-	(pt 480 144)
-	(pt 784 144)
 	(bus)
 )
 (connector
@@ -4478,12 +4534,6 @@ applicable agreement for further details.
 	(color 113 253 155)
 )
 (connector
-	(pt 2672 360)
-	(pt 2752 360)
-	(bus)
-	(color 113 253 155)
-)
-(connector
 	(pt -48 576)
 	(pt -40 576)
 	(bus)
@@ -4662,6 +4712,176 @@ applicable agreement for further details.
 	(pt 2520 -224)
 	(pt 2520 368)
 )
+(connector
+	(pt 1248 -64)
+	(pt 1184 -64)
+	(bus)
+)
+(connector
+	(pt 1184 112)
+	(pt 1184 -64)
+	(bus)
+)
+(connector
+	(pt 1184 112)
+	(pt 648 112)
+	(bus)
+)
+(connector
+	(pt 648 112)
+	(pt 648 144)
+	(bus)
+)
+(connector
+	(pt 480 144)
+	(pt 648 144)
+	(bus)
+)
+(connector
+	(pt 648 144)
+	(pt 784 144)
+	(bus)
+)
+(connector
+	(pt 1496 -64)
+	(pt 2048 -64)
+	(bus)
+)
+(connector
+	(pt 2048 256)
+	(pt 2048 -64)
+	(bus)
+)
+(connector
+	(pt 2048 256)
+	(pt 2096 256)
+	(bus)
+)
+(connector
+	(pt 2096 272)
+	(pt 1944 272)
+	(bus)
+)
+(connector
+	(pt 1944 480)
+	(pt 1944 272)
+	(bus)
+)
+(connector
+	(pt 712 480)
+	(pt 800 480)
+	(bus)
+)
+(connector
+	(pt 800 480)
+	(pt 1944 480)
+	(bus)
+)
+(connector
+	(pt 2968 208)
+	(pt 2960 208)
+	(bus)
+)
+(connector
+	(pt 2960 264)
+	(pt 2960 208)
+	(bus)
+)
+(connector
+	(pt 3272 264)
+	(pt 2960 264)
+	(bus)
+)
+(connector
+	(pt 3272 304)
+	(pt 3232 304)
+	(bus)
+)
+(connector
+	(pt 3064 304)
+	(pt 2712 304)
+)
+(connector
+	(pt 2712 304)
+	(pt 2712 312)
+)
+(connector
+	(pt 2600 312)
+	(pt 2712 312)
+	(color 0 255 128)
+)
+(connector
+	(pt 2712 312)
+	(pt 2752 312)
+	(color 0 255 128)
+)
+(connector
+	(pt 3064 320)
+	(pt 2616 320)
+)
+(connector
+	(pt 2616 48)
+	(pt 2616 320)
+	(color 0 179 89)
+)
+(connector
+	(pt 2616 320)
+	(pt 2616 328)
+	(color 0 179 89)
+)
+(connector
+	(pt 3064 352)
+	(pt 2720 352)
+	(bus)
+)
+(connector
+	(pt 2720 352)
+	(pt 2720 360)
+	(bus)
+)
+(connector
+	(pt 2672 360)
+	(pt 2720 360)
+	(bus)
+	(color 113 253 155)
+)
+(connector
+	(pt 2720 360)
+	(pt 2752 360)
+	(bus)
+	(color 113 253 155)
+)
+(connector
+	(pt 2584 -568)
+	(pt 2584 344)
+)
+(connector
+	(pt 2872 -552)
+	(pt 992 -552)
+)
+(connector
+	(pt 2872 336)
+	(pt 2872 -552)
+)
+(connector
+	(pt 2872 336)
+	(pt 3064 336)
+)
+(connector
+	(pt 3272 360)
+	(pt 3304 360)
+	(bus)
+)
+(connector
+	(pt 3272 264)
+	(pt 3272 304)
+	(bus)
+)
+(connector
+	(pt 3272 304)
+	(pt 3272 360)
+	(bus)
+)
 (junction (pt 1328 296))
 (junction (pt 1328 440))
 (junction (pt 1664 264))
@@ -4723,3 +4943,9 @@ applicable agreement for further details.
 (junction (pt 2976 848))
 (junction (pt 2064 1016))
 (junction (pt 2704 1040))
+(junction (pt 648 144))
+(junction (pt 800 480))
+(junction (pt 2712 312))
+(junction (pt 2616 320))
+(junction (pt 2720 360))
+(junction (pt 3272 304))

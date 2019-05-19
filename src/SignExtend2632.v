@@ -1,4 +1,4 @@
-module w_SignExtend2632(w_rdrtrs, w_SignExtend2632);
+module SignExtend2632(w_rdrtrs, w_SignExtend2632);
 
     input[25:0] w_rdrtrs;
     output reg[31:0] w_SignExtend2632;
